@@ -16,8 +16,22 @@ class App extends React.Component{
       this.setState(current => ({ count : current.count - 1}));
     };
 
+    componentDidMount() {
+        console.log("componentDidMount");
+    };
+
+    componentDidUpdate() {
+        console.log("componentDidUpdate");
+    };
+
+    componentWillUnmount() {
+        console.log("componentWillUnmount");
+    };
+
+
     render() {
 
+        console.log("rendering");
         // component 의 상태를 상수화
         // 함수 값을 상수화
 
