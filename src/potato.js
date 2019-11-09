@@ -1,7 +1,7 @@
 import React from "react";
 
-function Potato() {
-    return <h3>I like potato</h3>;
+function Potato({favourite}) {
+    return <h3>I like {favourite}</h3>;
 }
 
 

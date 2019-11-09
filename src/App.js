@@ -5,7 +5,9 @@ function App() {
   return (
     <div className="App">
         <h1>아무거나</h1>
-        <Potato/>
+        <Potato favourite="kimchi" />
+        <Potato favourite="mando" />
+        <Potato favourite="pizza" />
     </div>
   );
 }
