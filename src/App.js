@@ -1,49 +1,44 @@
-import React from 'react';
+import React, {Component} from 'react';
+import Axios from "axios";
 
-class App extends React.Component{
+export default class App extends Component{
 
     //함수 값 선언
     // component 의 상태
+
     state = {
-      count: 0
+        isLoading : true,
+        movies : []
     };
 
-    add = () => {
-      this.setState(current => ({ count : current.count + 1}));
+    getMovies = async () => {
+
+        const {
+            data : {
+                data: {movies}
+            }
+        } = await Axios.get("https://yts-proxy.now.sh/list_movies.json?sort_by=rating");
+        this.setState({ movies, isLoading : false});
+
     };
 
-    minus =() => {
-      this.setState(current => ({ count : current.count - 1}));
-    };
 
     componentDidMount() {
-        console.log("componentDidMount");
-    };
-
-    componentDidUpdate() {
-        console.log("componentDidUpdate");
-    };
-
-    componentWillUnmount() {
-        console.log("componentWillUnmount");
-    };
-
+        this.getMovies();
+    }
 
     render() {
 
-        console.log("rendering");
         // component 의 상태를 상수화
         // 함수 값을 상수화
+
+        const {isLoading, movies} = this.state;
 
         return(
            // 화면에 뿌려주는 구간
             <div>
-                <h1>the number is {this.state.count}</h1>
-                <button onClick={this.add}>Add</button>
-                <button onClick={this.minus}>minus</button>
+                {isLoading ? "loading" : "we are ready"}
             </div>
         );
     }
 }
-
-export default App;
