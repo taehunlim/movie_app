@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Axios from "axios";
+import Movie from "./Movie";
 
 export default class App extends Component{
 
@@ -37,7 +38,16 @@ export default class App extends Component{
         return(
            // 화면에 뿌려주는 구간
             <div>
-                {isLoading ? "loading" : "we are ready"}
+                {isLoading ? "loading" : movies.map(movie => (
+                    <Movie
+                        id={movie.id}
+                        url={movie.url}
+                        title={movie.title}
+                        summary={movie.summary}
+                        year={movie.year}
+                        poster={movie.small_cover_image}
+                    />
+                ))}
             </div>
         );
     }
