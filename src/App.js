@@ -4,6 +4,17 @@ class App extends React.Component{
 
     //함수 값 선언
     // component 의 상태
+    state = {
+      count: 0
+    };
+
+    add = () => {
+      this.setState(current => ({ count : current.count + 1}));
+    };
+
+    minus =() => {
+      this.setState(current => ({ count : current.count - 1}));
+    };
 
     render() {
 
@@ -12,6 +23,11 @@ class App extends React.Component{
 
         return(
            // 화면에 뿌려주는 구간
+            <div>
+                <h1>the number is {this.state.count}</h1>
+                <button onClick={this.add}>Add</button>
+                <button onClick={this.minus}>minus</button>
+            </div>
         );
     }
 }
