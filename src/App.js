@@ -38,13 +38,13 @@ export default class App extends Component{
 
         return(
            // 화면에 뿌려주는 구간
-            <section class="container">
+            <section className="container">
                 {isLoading ? (
-                    <div class="loader">
+                    <div className="loader">
                         <span>Loading</span>
                     </div>
                 ) : (
-                    <div class="movies">
+                    <div className="movies">
                         {movies.map(movie => (
                             <Movie
                                 key ={movie.id}
@@ -54,6 +54,7 @@ export default class App extends Component{
                                 title={movie.title}
                                 url={movie.url}
                                 poster={movie.medium_cover_image}
+                                genres={movie.genres}
                             />
                         ))}
                     </div>
